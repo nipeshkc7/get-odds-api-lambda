@@ -23,9 +23,7 @@ const getUpcomingMatches = async () => {
   const REGION = "au";
   const SPORT_KEY = "upcoming";
   const MARKET_TYPE = "h2h";
-
   let responseFromOddsAPI;
-
   try {
     responseFromOddsAPI = await axios.get(
       "https://api.the-odds-api.com/v3/odds",
@@ -38,9 +36,12 @@ const getUpcomingMatches = async () => {
         },
       }
     );
-    if (responseFromOddsAPI.success == false) throw new Error();
-  } catch {
+    if (responseFromOddsAPI.success == false) {
+      throw "Odds-Api server refused";
+    }
+  } catch (er) {
     console.log("Error fetching data from odds API");
+    console.log(er.message);
     return;
   }
   return responseFromOddsAPI.data;
@@ -50,3 +51,7 @@ const addMatchesToDB = () => {
   // TODO store to dynamoDB
   return;
 };
+
+getUpcomingMatches();
+
+module.exports = getUpcomingMatches;
