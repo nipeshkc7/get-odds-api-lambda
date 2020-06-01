@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nipeshkc7/get-odds-api-lambda/issues"
   },
-  "homepage": "https://github.com/nipeshkc7/get-odds-api-lambda#readme"
+  "homepage": "https://github.com/nipeshkc7/get-odds-api-lambda#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
 }
