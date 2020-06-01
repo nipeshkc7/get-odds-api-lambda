@@ -1,0 +1,19 @@
+{
+  "name": "odds-api-data",
+  "version": "1.0.0",
+  "description": "Get odds api data",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nipeshkc7/get-odds-api-lambda.git"
+  },
+  "author": "Arpan KC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nipeshkc7/get-odds-api-lambda/issues"
+  },
+  "homepage": "https://github.com/nipeshkc7/get-odds-api-lambda#readme"
+}
