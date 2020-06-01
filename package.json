@@ -18,5 +18,8 @@
   "homepage": "https://github.com/nipeshkc7/get-odds-api-lambda#readme",
   "dependencies": {
     "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }
