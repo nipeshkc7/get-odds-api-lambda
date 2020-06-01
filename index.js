@@ -51,7 +51,3 @@ const addMatchesToDB = () => {
   // TODO store to dynamoDB
   return;
 };
-
-getUpcomingMatches();
-
-module.exports = getUpcomingMatches;
