@@ -1,6 +1,10 @@
 const axios = require("axios");
+const AWS = require("aws-sdk");
+const uuid = require("uuid");
+const myDocumentClient = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
+  console.log('handling');
   let matches = await getUpcomingMatches();
 
   if (matches === undefined) {
@@ -29,10 +33,10 @@ const getUpcomingMatches = async () => {
       "https://api.the-odds-api.com/v3/odds",
       {
         params: {
-          api_key: ODDS_API_KEY,
-          sport: SPORT_KEY,
-          region: REGION, // uk | us | eu | au
-          mkt: MARKET_TYPE, // h2h | spreads | totals
+          "api_key": ODDS_API_KEY,
+          "sport": SPORT_KEY,
+          "region": REGION, // uk | us | eu | au
+          "mkt": MARKET_TYPE, // h2h | spreads | totals
         },
       }
     );
@@ -47,7 +51,17 @@ const getUpcomingMatches = async () => {
   return responseFromOddsAPI.data;
 };
 
-const addMatchesToDB = () => {
-  // TODO store to dynamoDB
-  return;
+const addMatchesToDB = (matches) => {
+  if(matches === undefined) return;
+  const params = {
+    Item: {
+      "id": uuid.v1(),
+      "betsDate": date.getTime(),
+      "matches": [...matches],
+    },
+    TablesName: process.env.TABLE_NAME
+  }
+  myDocumentClient.put(params, function(err,data){
+    callback(err,data);
+  })
 };
