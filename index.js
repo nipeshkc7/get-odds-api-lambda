@@ -62,6 +62,10 @@ const addMatchesToDB = (matches) => {
     TablesName: process.env.TABLE_NAME
   }
   myDocumentClient.put(params, function(err,data){
-    callback(err,data);
+    if(err) {
+      console.log(`Unable to add matches data . Error JSON: ${JSON.stringify(err,null,2)}`)
+    } else{
+      console.log("PutMatches succeeded");
+    }
   })
 };
