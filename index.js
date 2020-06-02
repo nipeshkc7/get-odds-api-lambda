@@ -55,8 +55,8 @@ const addMatchesToDB = (matches) => {
   if(matches === undefined) return;
   const params = {
     Item: {
-      "id":{ S: uuid.v1()},
-      "betsDate": {S: Date.now()},
+      "id": uuid.v1(),
+      "betsDate": Date.now(),
       "matches": [...matches],
     },
     "TableName": process.env.TABLE_NAME
