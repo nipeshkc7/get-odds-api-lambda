@@ -55,7 +55,7 @@ const addMatchesToDB = (matches) => {
   if(matches === undefined) return;
   const params = {
     Item: {
-      "id": 1,
+      "id": uuid.v1(),
       "betsDate": Date.now(),
       "matches": JSON.parse(matches),
     },
