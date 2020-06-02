@@ -59,7 +59,7 @@ const addMatchesToDB = (matches) => {
       "betsDate": Date.now(),
       "matches": [...matches],
     },
-    TablesName: process.env.TABLE_NAME
+    "TableName": process.env.TABLE_NAME
   }
   myDocumentClient.put(params, function(err,data){
     if(err) {
