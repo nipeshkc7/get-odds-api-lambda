@@ -48,7 +48,7 @@ const getUpcomingMatches = async () => {
     console.log(er.message);
     return;
   }
-  return responseFromOddsAPI.data;
+  return JSON.stringify(responseFromOddsAPI.data.data);
 };
 
 const addMatchesToDB = (matches) => {
