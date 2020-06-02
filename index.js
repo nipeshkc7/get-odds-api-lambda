@@ -1,7 +1,7 @@
 const axios = require("axios");
-const AWS = require("aws-sdk");
+const AWS = require("aws-sdk").DynamoDB;
 const uuid = require("uuid");
-const myDocumentClient = new AWS.DynamoDB.DocumentClient();
+const myDocumentClient = new AWS.DocumentClient();
 
 exports.handler = async (event) => {
   console.log('handling');
