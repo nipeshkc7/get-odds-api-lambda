@@ -64,6 +64,7 @@ const addMatchesToDB = (matches) => {
   myDocumentClient.put(params, function(err,data){
     if(err) {
       console.log(`Unable to add matches data . Error JSON: ${JSON.stringify(err,null,2)}`)
+      throw err;
     } else{
       console.log("PutMatches succeeded");
     }
