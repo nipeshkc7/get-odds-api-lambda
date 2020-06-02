@@ -57,7 +57,7 @@ const addMatchesToDB = (matches) => {
     Item: {
       "id": 1,
       "betsDate": Date.now(),
-      "matches": [...matches],
+      "matches": JSON.parse(matches),
     },
     "TableName": process.env.TABLE_NAME
   }
