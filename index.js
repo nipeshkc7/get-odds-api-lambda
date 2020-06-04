@@ -4,7 +4,6 @@ const uuid = require("uuid");
 const myDocumentClient = new AWS.DocumentClient();
 
 exports.handler = async (event) => {
-  console.log('handling');
   let matches = await getUpcomingMatches();
 
   if (matches === undefined) {
@@ -51,7 +50,7 @@ const getUpcomingMatches = async () => {
   return JSON.stringify(responseFromOddsAPI.data.data);
 };
 
-const addMatchesToDB = (matches) => {
+const addMatchesToDB = async(matches) => {
   if(matches === undefined) return;
   const params = {
     Item: {
@@ -61,12 +60,10 @@ const addMatchesToDB = (matches) => {
     },
     "TableName": process.env.TABLE_NAME
   }
-  myDocumentClient.put(params, function(err,data){
-    if(err) {
-      console.log(`Unable to add matches data . Error JSON: ${JSON.stringify(err,null,2)}`)
-      throw err;
-    } else{
-      console.log("PutMatches succeeded");
-    }
-  })
+  try{
+    await myDocumentClient.put(params).promise();
+  } catch(error) {
+    console.log(`Could not post: ${error.stack}`);
+    throw error.stack;
+  }
 };
