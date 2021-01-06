@@ -18,7 +18,7 @@
   "homepage": "https://github.com/nipeshkc7/get-odds-api-lambda#readme",
   "dependencies": {
     "aws-sdk": "^2.687.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "uuid": "^8.1.0"
   },
   "devDependencies": {
