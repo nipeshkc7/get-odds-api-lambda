@@ -1,6 +1,6 @@
 # get-odds-api-lambda
 
-🚀🚀 This is a lambda function deployed to AWS that gets api data from [odds-api](https://the-odds-api.com) and store it in Amazon DynamoDB 📂📂.
+🚀🚀 This is a lambda function deployed to AWS that gets api data from [odds-api](https://the-odds-api.com) and stores it in Amazon DynamoDB 📂📂.
 
 ## Overview
 
